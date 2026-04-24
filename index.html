@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Small Plumber Small Prices | Tempe, AZ</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #162d52;
+    --blue: #1a6fc4;
+    --blue-light: #2a83e8;
+    --gold: #e8a020;
+    --gold-light: #f5c040;
+    --white: #ffffff;
+    --off-white: #f5f7fa;
+    --gray: #6b7a91;
+    --light-gray: #e2e8f0;
+    --text: #1a2640;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.35);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    letter-spacing: .01em;
+    line-height: 1.2;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: .9rem;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: .02em;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .nav-cta svg { width: 16px; height: 16px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 5% 80px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(26,111,196,.22) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(232,160,32,.1) 0%, transparent 60%);
+  }
+  /* Pipe graphic */
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: 50%;
+    transform: translateY(-50%);
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 80px solid rgba(26,111,196,.12);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 680px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,160,32,.15);
+    border: 1px solid rgba(232,160,32,.4);
+    color: var(--gold-light);
+    font-size: .8rem; font-weight: 600;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: .5rem; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 22px;
+    animation: fadeUp .65s .08s ease both;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300;
+    color: rgba(255,255,255,.72);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 560px;
+    animation: fadeUp .65s .16s ease both;
+  }
+  .hero-actions {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    animation: fadeUp .65s .24s ease both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700; font-size: 1rem;
+    padding: 16px 32px; border-radius: 5px;
+    text-decoration: none;
+    transition: background .2s, box-shadow .2s, transform .15s;
+    box-shadow: 0 4px 18px rgba(232,160,32,.35);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,160,32,.45); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1.5px solid rgba(255,255,255,.3);
+    color: var(--white); font-weight: 500; font-size: 1rem;
+    padding: 16px 32px; border-radius: 5px;
+    text-decoration: none;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.06); }
+
+  .hero-stats {
+    margin-top: 56px;
+    display: flex; gap: 40px; flex-wrap: wrap;
+    animation: fadeUp .65s .32s ease both;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 36px;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-size: .8rem; color: rgba(255,255,255,.5);
+    margin-top: 2px; text-transform: uppercase; letter-spacing: .08em;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    background: var(--off-white);
+    padding: 100px 5%;
+  }
+  .section-label {
+    text-transform: uppercase; letter-spacing: .12em;
+    font-size: .75rem; font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--gray); font-size: 1rem; font-weight: 300;
+    max-width: 500px; line-height: 1.7; margin-bottom: 56px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 32px 28px;
+    border: 1px solid var(--light-gray);
+    transition: box-shadow .25s, transform .25s, border-color .25s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    opacity: 0; transition: opacity .25s;
+  }
+  .service-card:hover { box-shadow: 0 12px 40px rgba(13,31,60,.1); transform: translateY(-4px); border-color: transparent; }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: linear-gradient(135deg, rgba(26,111,196,.12), rgba(26,131,232,.06));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  .service-card h3 {
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 10px;
+  }
+  .service-card p {
+    font-size: .9rem; color: var(--gray); line-height: 1.65;
+  }
+
+  /* ── WHY US ── */
+  .why {
+    background: var(--navy);
+    padding: 100px 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-text h2 { color: var(--white); margin-bottom: 14px; }
+  .why-text .section-label { color: var(--gold); }
+  .why-text .section-sub { color: rgba(255,255,255,.6); margin-bottom: 40px; }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+  .why-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: .95rem; color: rgba(255,255,255,.8); line-height: 1.55;
+  }
+  .why-check {
+    flex-shrink: 0;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(232,160,32,.15);
+    border: 1.5px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: .75rem; margin-top: 1px;
+  }
+  .why-cta-box {
+    background: rgba(26,111,196,.12);
+    border: 1px solid rgba(26,111,196,.3);
+    border-radius: 12px;
+    padding: 44px 40px;
+    text-align: center;
+  }
+  .why-cta-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1.6rem; margin-bottom: 10px;
+  }
+  .why-cta-box p { color: rgba(255,255,255,.55); font-size: .95rem; margin-bottom: 30px; line-height: 1.6; }
+  .call-box {
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .call-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700; font-size: 1.2rem;
+    padding: 18px 36px; border-radius: 6px;
+    text-decoration: none;
+    width: 100%; justify-content: center;
+    transition: background .2s, transform .15s;
+    box-shadow: 0 6px 24px rgba(232,160,32,.35);
+  }
+  .call-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .call-note { color: rgba(255,255,255,.45); font-size: .8rem; }
+  .email-link { color: rgba(255,255,255,.5); font-size: .85rem; text-decoration: none; transition: color .2s; }
+  .email-link:hover { color: var(--gold); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+  .testimonials-header { margin-bottom: 56px; }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 4px; letter-spacing: 2px; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .review-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 32px 28px;
+    border: 1px solid var(--light-gray);
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute; top: 20px; right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; line-height: 1;
+    color: var(--light-gray);
+    pointer-events: none;
+  }
+  .review-stars { color: var(--gold); font-size: .85rem; margin-bottom: 14px; }
+  .review-text {
+    font-size: .95rem; color: var(--gray); line-height: 1.7;
+    margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .reviewer {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .reviewer-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: .9rem;
+  }
+  .reviewer-name { font-weight: 600; color: var(--navy); font-size: .9rem; }
+  .reviewer-loc { font-size: .78rem; color: var(--gray); }
+
+  .trust-bar {
+    margin-top: 60px;
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 36px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 12px;
+    color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 500;
+  }
+  .trust-icon { font-size: 1.4rem; }
+
+  /* ── CONTACT FORM ── */
+  .contact {
+    padding: 100px 5%;
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info h2 { margin-bottom: 14px; }
+  .contact-info .section-sub { margin-bottom: 40px; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .contact-detail-icon {
+    width: 44px; height: 44px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--blue), #0d5ba8);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-detail-text strong { display: block; color: var(--navy); font-size: .95rem; margin-bottom: 2px; }
+  .contact-detail-text span, .contact-detail-text a {
+    color: var(--gray); font-size: .9rem; text-decoration: none;
+  }
+  .contact-detail-text a:hover { color: var(--blue); }
+
+  .form-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 44px 40px;
+    box-shadow: 0 4px 30px rgba(13,31,60,.08);
+    border: 1px solid var(--light-gray);
+  }
+  .form-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--navy); margin-bottom: 6px;
+  }
+  .form-card > p { color: var(--gray); font-size: .9rem; margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block; font-size: .82rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px; letter-spacing: .02em;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    border: 1.5px solid var(--light-gray);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    resize: vertical;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(26,111,196,.1);
+  }
+  .field textarea { min-height: 110px; }
+  .submit-btn {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    padding: 15px 28px;
+    border: none; border-radius: 6px;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    margin-top: 6px;
+    letter-spacing: .02em;
+  }
+  .submit-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .form-disclaimer { font-size: .75rem; color: var(--gray); margin-top: 10px; text-align: center; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #081428;
+    padding: 40px 5%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1rem;
+  }
+  .footer-logo span { color: var(--gold); }
+  footer p { color: rgba(255,255,255,.35); font-size: .8rem; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .why, .contact { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+    .trust-bar { justify-content: center; }
+  }
+  @media (max-width: 600px) {
+    .hero-stats { gap: 24px; }
+    .form-card { padding: 28px 20px; }
+    .nav-logo { font-size: .95rem; }
+  }
+
+  /* Success message */
+  .form-success {
+    display: none;
+    background: #d1fae5; border: 1.5px solid #10b981;
+    color: #065f46; padding: 14px 18px; border-radius: 6px;
+    font-size: .9rem; margin-bottom: 16px; font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Small Plumber<br><span>Small Prices™</span></div>
+  <a href="tel:4805197400" class="nav-cta">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+    480-519-7400
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Serving Tempe &amp; the East Valley</div>
+    <h1>Expert Plumbing.<br><em>Fair Prices.</em><br>Fast Results.</h1>
+    <p class="hero-sub">From water heater replacements to full plumbing installs, we deliver reliable, efficient service — on your schedule, at prices that won't break the bank.</p>
+    <div class="hero-actions">
+      <a href="tel:4805197400" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        Call Now: 480-519-7400
+      </a>
+      <a href="#contact" class="btn-secondary">Get a Free Quote →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Jobs Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Avg. Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Same-Day</div>
+        <div class="stat-label">Service Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <p class="section-label">What We Do</p>
+  <h2>Full-Service Plumbing for<br>Homeowners &amp; Businesses</h2>
+  <p class="section-sub">No job too big or too small. We handle everything plumbing with speed, precision, and affordable pricing every time.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🔥</div>
+      <h3>Water Heater Replacement</h3>
+      <p>Traditional tank or tankless — we install, repair, and replace all major brands quickly and affordably.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <h3>Plumbing Repairs</h3>
+      <p>Leaky pipes, burst lines, dripping faucets, running toilets — we diagnose and fix it right the first time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚿</div>
+      <h3>Fixture Installation</h3>
+      <p>Sinks, faucets, showers, toilets, and more — professional installation with attention to detail.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💧</div>
+      <h3>Water Softener Install</h3>
+      <p>Protect your pipes and appliances from Arizona's hard water with a properly sized softener system.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Full Plumbing Services</h3>
+      <p>Drain cleaning, re-piping, slab leak detection, and complete plumbing system inspections.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📅</div>
+      <h3>Flexible Scheduling</h3>
+      <p>We work around your life — including evenings and weekends — so you never have to take time off work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why-text">
+    <p class="section-label">Why Choose Us</p>
+    <h2>Local, Honest &amp; <em style="font-style:normal;color:var(--gold)">Dependable</em></h2>
+    <p class="section-sub">We're your neighbors in Tempe. We built this business on fair prices, honest assessments, and doing the job right — every single time.</p>
+    <ul class="why-list">
+      <li><span class="why-check">✓</span>Upfront, transparent pricing — no surprise bills</li>
+      <li><span class="why-check">✓</span>Locally owned and operated in Tempe, AZ</li>
+      <li><span class="why-check">✓</span>Fast response times — same-day service often available</li>
+      <li><span class="why-check">✓</span>Quality workmanship with parts that last</li>
+      <li><span class="why-check">✓</span>Flexible scheduling to fit your busy life</li>
+      <li><span class="why-check">✓</span>Friendly, professional service guaranteed</li>
+    </ul>
+  </div>
+  <div class="why-cta-box">
+    <h3>Ready to Get Started?</h3>
+    <p>Call us now for a free estimate. Our team is standing by to help with any plumbing issue — big or small.</p>
+    <div class="call-box">
+      <a href="tel:4805197400" class="call-btn">
+        📞 &nbsp;480-519-7400
+      </a>
+      <p class="call-note">Available Mon–Sat · Fast Response</p>
+      <a href="mailto:contractorpd@gmail.com" class="email-link">✉ contractorpd@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-label">Customer Reviews</p>
+    <h2>What Our Customers Are Saying</h2>
+    <div class="stars">★★★★★</div>
+    <p style="color:var(--gray);font-size:.9rem">5.0 average rating from satisfied homeowners across Tempe &amp; the East Valley</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">My water heater went out on a Friday afternoon. They came out within a couple hours and had a new one installed the same day. Pricing was very fair and they were super professional the whole time.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">MR</div>
+        <div>
+          <div class="reviewer-name">Mike R.</div>
+          <div class="reviewer-loc">Tempe, AZ</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">So glad I found these guys. I called three plumbers before them and got crazy quotes. Small Plumber came out, assessed the issue, and gave me a price that was almost half what the others quoted. Great work too!</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">SL</div>
+        <div>
+          <div class="reviewer-name">Sandra L.</div>
+          <div class="reviewer-loc">Chandler, AZ</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Had them install a water softener system for our home. The team was clean, efficient, and walked me through everything. Exactly the kind of service you hope for. Will use them for all future plumbing needs!</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">DK</div>
+        <div>
+          <div class="reviewer-name">David K.</div>
+          <div class="reviewer-loc">Mesa, AZ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">🛡️</span> Licensed &amp; Insured</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Same-Day Service Available</div>
+    <div class="trust-item"><span class="trust-icon">💯</span> Satisfaction Guaranteed</div>
+    <div class="trust-item"><span class="trust-icon">📍</span> Locally Owned · Tempe, AZ</div>
+    <div class="trust-item"><span class="trust-icon">💬</span> Free Estimates</div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <p class="section-label">Contact Us</p>
+    <h2>Get a Free Quote Today</h2>
+    <p class="section-sub">Fill out the form or reach us directly — we'll get back to you quickly with honest, upfront pricing.</p>
+
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📞</div>
+      <div class="contact-detail-text">
+        <strong>Phone</strong>
+        <a href="tel:4805197400">480-519-7400</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">✉️</div>
+      <div class="contact-detail-text">
+        <strong>Email</strong>
+        <a href="mailto:contractorpd@gmail.com">contractorpd@gmail.com</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📍</div>
+      <div class="contact-detail-text">
+        <strong>Location</strong>
+        <span>Tempe, AZ · Serving the East Valley</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">🕐</div>
+      <div class="contact-detail-text">
+        <strong>Hours</strong>
+        <span>Mon–Sat: 7am–7pm · Emergency available</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h3>Request a Free Estimate</h3>
+    <p>We typically respond within a few hours.</p>
+    <div class="form-success" id="successMsg">✅ Thanks! We'll be in touch shortly.</div>
+    <div class="form-row">
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" placeholder="John">
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(480) 000-0000">
+    </div>
+    <div class="field">
+      <label>Email Address</label>
+      <input type="email" placeholder="john@email.com">
+    </div>
+    <div class="field">
+      <label>Service Needed</label>
+      <select>
+        <option value="">Select a service...</option>
+        <option>Water Heater Replacement</option>
+        <option>Plumbing Repair</option>
+        <option>Water Softener Installation</option>
+        <option>Fixture Installation</option>
+        <option>Drain Cleaning</option>
+        <option>Other / Not Sure</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Tell Us More (Optional)</label>
+      <textarea placeholder="Describe your plumbing issue or question..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitForm()">Send My Request →</button>
+    <p class="form-disclaimer">We respect your privacy. Your info is never shared or sold.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Small Plumber <span>Small Prices™</span><br><span style="color:rgba(255,255,255,.35);font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:300;">Tempe, AZ</span></div>
+  <p>© 2025 Small Plumber Small Prices. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="tel:4805197400">480-519-7400</a>
+    <a href="mailto:contractorpd@gmail.com">Email Us</a>
+    <a href="#contact">Free Quote</a>
+  </div>
+</footer>
+
+<script>
+  function submitForm() {
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 5000);
+  }
+</script>
+</body>
+</html>
